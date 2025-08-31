@@ -1,0 +1,119 @@
+#previousChatsDiv{
+    width: 100px;
+    height: 100vh;
+    background-color: white;
+}
+
+h6{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color:rgb(0, 0, 0)
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0%;
+    border-radius: 25px;
+
+    /* This bit draws the box around it */
+    border:3px solid lightgray
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    text-align: center;
+    border-radius: 25px;
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: sans-serif;
+    background-color: transparent;
+    color:gray;
+    border-color: lightgray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+body{
+    background-image: "/img/book.png";
+}
+
+#attachButton{
+    background-image: "/img/clip.png";
+}
+
+#searchButton{
+    background-image: "/img/clip.png";
+}
+
+#studyButton{
+    background-image: "/img/clip.png";
+}
+
+::selection {
+  background-color: #B8DCFF; /* Sets the background color of the highlighted text */
+  color: #000000;          /* Sets the color of the highlighted text */
+}
+
+#buttonContainer{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input{
+    height: 100px;
+    width: 700px;
+    border: none;
+    margin-left: 25px;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:gray;
+    font-size: 20px;
+    
+}
+
+#imgsUnderneath{
+    background-color: black;
+}
+
+#chatInteraction{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* or any fixed height like 500px */
+    width: 100vw;
+    
+}
+
+#disclaimer{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: gray;
+}
+
+#mainmainContainer{
+    display: flex;
+}
+
+.flex-container{
+    display: flex;
+}
