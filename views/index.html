@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+
     <title>Document</title>
 </head>
 <body>
 
      <div class="flex-container" id="mainmainContainer">
         <div id="previousChatsDiv">
-            <h6 >Deepseek</h6>
+            <img id="deepseek_logo" src="/img/deepseek_logo.png" />
         </div>
 
 
         <div id="chatInteraction">
             <h1>Deepseek</h1>
             <form id="formChatBox" autocomplete="off">
-                <input type="text" id="chatBox" name="fname" value="Ask anything"><br>
+                <textarea type="text" id="chatBox" name="query" placeholder="Ask anything"></textarea> 
                 <div id="buttonContainer">
-                    <button id="attachButton">Attach</button>
-                    <button id="searchButton">Search</button>
-                    <button id="studyButton">Study</button>
+                    <button class="defaultStateButton" id="attachButton"> <img class="button_img" src="/img/clip.png"/>  Attach</button>
+                    <button class="defaultStateButton" id="searchButton"> <img class="button_img" src="/img/globe.png"/> Search</button>
+                    <button class="defaultStateButton" id="studyButton">  <img class="button_img" src="/img/book.png"/> Study</button>
+                     <button class="voiceButtonClass" id="voiceButton">  <img class="button_img" src="/img/volume_logo.png"/> Voice </button>
+                    <!-- <button class="loadingButton" id="voiceButton">  <img class="button_img" src="/img/loading_center.png"/> </button> -->
                 </div>
             </form>
 
@@ -31,9 +34,7 @@
         
     </div> 
 
-    <!-- <div id="mainContainer">
-        <div id="previousChatsDiv"></div>
-        <div id="chatInteraction"></div>
-    </div> -->
+
+    <script src="js/index.js"></script>
 </body>
 </html>

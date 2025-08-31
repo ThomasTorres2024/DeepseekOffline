@@ -23,16 +23,20 @@ form{
     flex-direction: column;
     margin-top: 0%;
     border-radius: 25px;
-
+    overflow-wrap: break-word;
     /* This bit draws the box around it */
-    border:3px solid lightgray
-}
-
-input:focus{
-    outline: none;
+    border:1px solid lightgray
 }
 
 button{
+    transition: none;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.defaultStateButton{
     text-align: center;
     border-radius: 25px;
     font-size: 10px;
@@ -42,27 +46,69 @@ button{
     background-color: transparent;
     color:gray;
     border-color: lightgray;
+    border-width: 1.5px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
     font-weight: bold;
+    transition: none;
 }
 
-body{
-    background-image: "/img/book.png";
+.loadingButton{
+    height:30px;
+    width: 30px;
+    margin-left: 360px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 10px;
+    margin-right: 10px;
+    font-family: sans-serif;
+    background-color: lightgray;
+    border-color: transparent;
+    border-width: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    transition: none;
 }
 
-#attachButton{
-    background-image: "/img/clip.png";
+button:active { 
+  box-shadow: none; 
+  border-style: outset;  
 }
 
-#searchButton{
-    background-image: "/img/clip.png";
+
+#deepseek_logo{ 
+    width:75px;
+    height: 75px;
 }
 
-#studyButton{
-    background-image: "/img/clip.png";
+.voiceButtonClass{
+    margin-left: 360px;
+    background-color: lightgray;
+
+    text-align: center;
+    border-radius: 25px;
+    font-size: 10px;
+    margin-right: 10px;
+    font-family: sans-serif;
+    color:gray;
+    border-color: lightgray;
+    border-width: 1.5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    transition: none;
+}
+
+.button_img{
+    height:10px;
+    width:10px;
 }
 
 ::selection {
@@ -78,16 +124,45 @@ body{
     margin-bottom: 10px;
 }
 
-input{
-    height: 100px;
+textarea{
+    height: 70px;
     width: 700px;
     border: none;
     margin-left: 25px;
+    margin-top: 3%;
+    overflow: auto;
 
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color:gray;
     font-size: 20px;
     
+}
+
+.submitButton{
+    height:30px;
+    width: 30px;
+    margin-left: 360px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 10px;
+    margin-right: 10px;
+    font-family: sans-serif;
+    background-color: black;
+    color:black;
+    border-color: black;
+    border-width: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    transition: none;
+}
+
+#chatBox{
+    resize: none; /* optional: disable manual resizing */
+    overflow-y: auto; /* show vertical scrollbar when needed */
+    box-sizing: border-box;
 }
 
 #imgsUnderneath{
