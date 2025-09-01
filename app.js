@@ -1,7 +1,10 @@
 //set up express and port 
 const express = require("express");
+const { default: ollama } = require('ollama'); // CJS
 const app = express();
 const port = 3000; 
+
+
 
 //add static files 
 app.use(express.static('public'));
@@ -26,16 +29,25 @@ app.post('/reqDeepseek',(req,res) =>{
   res.send(userQuery);
 });
 
-
+async function callDeepSeek(){
+  console.log("waiting");
+    const response = await ollama.chat({
+      model: 'deepseek-r1:latest',
+      messages: [{ role: 'user', content: 'Why is the sky blue?' }],
+    })
+    
+    console.log(response.message.content);  
+}
 
 //llama sample code for tomorrow 
-// import ollama from 'ollama'
 
-// const response = await ollama.chat({
-//   model: 'llama2',
-//   messages: [{ role: 'user', content: 'Why is the sky blue?' }],
-// })
-// console.log(response.message.content)
-
+    // const response = await ollama.chat({
+    //   model: 'llama2',
+    //   messages: [{ role: 'user', content: 'Hello what is your name' }],
+    // })
+    // console.log(response.message.content)
+      
 //launch locally 
 app.listen(port, () => console.info(`Listening on port: ${port}`));
+callDeepSeek();
+console.log("test");

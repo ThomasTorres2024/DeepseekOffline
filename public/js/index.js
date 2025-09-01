@@ -37,6 +37,36 @@ function convertSubmitToVoice(){
     image.src="img/volume_logo.png"
 }
 
+/**
+ * Gets response and updates page 
+ */ 
+async function getResponse(){
+    const userQuery = document.getElementById("chatBox").value;
+
+    convertSubmitToChange();
+    //send request to server for info 
+            
+    const options = {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body : JSON.stringify({userQuery})};
+    
+    document.getElementById("chatBox").value = "";
+    resetTextAreaForm();
+
+    const res = await fetch("/reqDeepseek",options);
+    const result = await res.text();
+    
+    console.log("Responsed received from server:")
+    console.log(result);
+ 
+    //once server request is done, we can go back to voice
+    convertSubmitToVoice();
+
+    document.getElementById("chatBox").value = "";
+    resetTextAreaForm();
+}
+
 function main(){
 
     var voiceButtonModified = false; 
@@ -82,32 +112,20 @@ function main(){
     const voiceButton = document.getElementById("voiceButton");
     voiceButton.addEventListener("click", async ()=>{
         if(voiceButtonModified){
-            const userQuery = document.getElementById("chatBox").value;
-
-
-            convertSubmitToChange();
-            document.getElementById("chatBox").value = "";
-            resetTextAreaForm();
-            //send request to server for info 
-            
-            const options = {
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body : JSON.stringify({userQuery})};
-            
-            const res = await fetch("/reqDeepseek",options);
-            const result = await res.text();
-            
-            console.log(result);
-
-            voiceButtonModified = false; 
-            //once server request is done, we can go back to voice
-            convertSubmitToVoice();
-
+            await getResponse();
+            voiceButtonModified = false;
         }
     });
 
-    //add listener for entering 
+    //alternative submit method using enter 
+    addEventListener("keypress", async (event) => 
+        {
+            if(voiceButtonModified && event.key === 'Enter'){
+                await getResponse();
+                voiceButtonModified = false;
+            }
+         })
+
 
 }
 
