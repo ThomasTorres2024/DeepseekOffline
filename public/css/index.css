@@ -1,6 +1,38 @@
+html, body{
+    height:100%
+}
+
+.constSizeContainer{
+    height:30px;
+    width: 30px;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.waiting{
+    height:15px;
+    width: 15px;
+    background-color: black;
+    margin-bottom: 20px;
+    margin-right: auto;
+    border-radius: 25px;
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    from {
+        height:15px;
+        width: 15px;
+    }
+    to {
+        height:30px;
+        width: 30px;
+    }
+}
+
 #previousChatsDiv{
     width: 100px;
-    height: 100vh;
+    height: 100%;
     background-color: white;
 }
 
@@ -25,8 +57,10 @@ form{
     border-radius: 25px;
     overflow-wrap: break-word;
     /* This bit draws the box around it */
-    border:1px solid lightgray
+    border:1px solid lightgray;
+    margin-bottom: auto;
 }
+
 
 button{
     transition: none;
@@ -73,6 +107,39 @@ textarea:focus{
     padding-right: 10px;
     font-weight: bold;
     transition: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+#chats{
+    width: 740px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userChat{
+    overflow: auto;
+    background-color: #E1E1E1;
+    color: black;
+    border-radius: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+    margin-bottom: 25px;
+    padding: 0 20px;
+    display: inline-block;
+}
+
+.serverResponse{
+    overflow: auto;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-right: auto; 
+    margin-bottom: 25px;
 }
 
 button:active { 
@@ -88,7 +155,7 @@ button:active {
 
 .voiceButtonClass{
     margin-left: 360px;
-    background-color: lightgray;
+    background-color: #E1E1E1;
 
     text-align: center;
     border-radius: 25px;
@@ -175,7 +242,8 @@ textarea{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100vh; /* or any fixed height like 500px */
+    margin-top: 3%;
+    height: 100%; /* or any fixed height like 500px */
     width: 100vw;
     
 }
@@ -183,6 +251,7 @@ textarea{
 #disclaimer{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: gray;
+    margin-bottom: auto;
 }
 
 #mainmainContainer{

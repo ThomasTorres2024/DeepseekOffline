@@ -1,10 +1,55 @@
 /**
- * Changes the screen from having a logo with a chatbox in the center to a screen where
- * the chatbox is at the bottom and there is a conversation going on between the user
- * and Deepseek/LLM
+ * Removes deepseek logo if needed 
  */
-function setScreenTextResponses(){
+function removeDeepSeekLogo(){
+    //remove logo if not removed 
+    if(document.getElementById("deepSeekHeader")){
+        document.getElementById("deepSeekHeader").remove();
+    }
+}
 
+/**
+ * Sets server response waiting for deepseek to respond 
+ */
+function setServerResponseInitial(){
+    const chats = document.getElementById("chats");
+
+    //add chatblock on right
+    const serverResponseElement = document.createElement("div");
+    serverResponseElement.classList.add("constSizeContainer");
+
+    const waiting = document.createElement("div");
+    waiting.classList.add("waiting");
+    serverResponseElement.appendChild(waiting);
+
+    chats.appendChild(serverResponseElement)
+    return serverResponseElement;
+}
+
+/**
+ * Sets user responses to chat mode 
+ * @param {string, user's question to deepseek} userQuery 
+ */
+function setUserResponse(userQuery){
+    const chats = document.getElementById("chats");
+
+    //add chatblock on right
+    const userQuestion = document.createElement("div")
+    userQuestion.classList.add("userChat")
+    userQuestion.textContent=userQuery; 
+
+    chats.appendChild(userQuestion);
+}
+
+/**
+ * Sets user responses to chat mode 
+ * @param {string, server's response to user} serverResponse 
+ */
+function setServerResponse(serverResponseElement,serverText){
+    //remove waiting element 
+    serverResponseElement.removeChild(serverResponseElement.firstChild)
+    serverResponseElement.classList.replace("constSizeContainer","serverResponse");
+    serverResponseElement.innerHTML =serverText; 
 }
 
 function resetTextAreaForm(){
@@ -53,12 +98,18 @@ async function getResponse(){
     
     document.getElementById("chatBox").value = "";
     resetTextAreaForm();
+    removeDeepSeekLogo();
 
+    setUserResponse(userQuery);
+    const serverResponseElement= setServerResponseInitial();
     const res = await fetch("/reqDeepseek",options);
     const result = await res.text();
     
-    console.log("Responsed received from server:")
-    console.log(result);
+    //sets server response 
+    setServerResponse(serverResponseElement,result);
+
+    // console.log("Responsed received from server:")
+    // console.log(result);
  
     //once server request is done, we can go back to voice
     convertSubmitToVoice();
@@ -124,8 +175,8 @@ function main(){
                 await getResponse();
                 voiceButtonModified = false;
             }
-         })
-
+    })
+    
 
 }
 

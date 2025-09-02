@@ -9,14 +9,20 @@
 </head>
 <body>
 
-     <div class="flex-container" id="mainmainContainer">
+    <div class="flex-container" id="mainmainContainer">
         <div id="previousChatsDiv">
             <img id="deepseek_logo" src="/img/deepseek_logo.png" />
         </div>
 
 
         <div id="chatInteraction">
-            <h1>Deepseek</h1>
+            <h1 id="deepSeekHeader" >Deepseek</h1>
+            
+
+            <div id = "chats">
+            </div>
+
+
             <form id="formChatBox" autocomplete="off">
                 <textarea type="text" id="chatBox" name="query" placeholder="Ask anything"></textarea> 
                 <div id="buttonContainer">
@@ -34,7 +40,7 @@
         
     </div> 
 
-
     <script src="js/index.js"></script>
+
 </body>
 </html>
